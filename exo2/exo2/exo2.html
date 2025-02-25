@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice simple</title>
+</head>
+<STyle>
+
+
+
+</STyle>
+<body>
+    <form id="exo2">
+        <input type="text" id="input1" placeholder="Saisir le premier nombre">
+        <input type="text" id="input2" placeholder="Saisir le deuxième nombre">
+        
+        <input type="button" value="-" onclick="soustraire()">
+        <input type="button" value="/" onclick="diviser()">
+        <input type="button" value="+" onclick="additionner()">
+        <input type="button" value="*" onclick="multiplier()">
+        
+        <input type="text" id="resultat" readonly placeholder="Résultat">
+    </form>
+
+    <script>
+
+        // fonction qui récupère les deux nombres et les renvoie sous forme d'objet qu'on va appeler a chaque fois on veut //effectuer une opération
+        function getNumbers() {
+            //c'est juste pour éviter la concaténation des deux chaines,au lieu in fait l'addition des float
+            let num1 = parseFloat(document.getElementById("input1").value);
+            let num2 = parseFloat(document.getElementById("input2").value);
+            
+            if (isNaN(num1) || isNaN(num2)) { //vérification des valeurs nulles
+                alert("Veuillez entrer des nombres valides."); //ajout d'un alert
+                return null;
+            }
+            
+            return { num1, num2 };
+        }
+
+        function soustraire() {
+            let numbers = getNumbers();
+            if (numbers) {
+                document.getElementById("resultat").value = numbers.num1 - numbers.num2;
+            }
+        }
+
+        function additionner() {
+            let numbers = getNumbers();
+            if (numbers) {
+                document.getElementById("resultat").value = numbers.num1 + numbers.num2;
+            }
+        }
+
+        function multiplier() {
+            let numbers = getNumbers();
+            if (numbers) {
+                document.getElementById("resultat").value = numbers.num1 * numbers.num2;
+            }
+        }
+
+        function diviser() {
+            let numbers = getNumbers();
+            if (numbers) {
+                if (numbers.num2 === 0) {
+                    alert("Division par zéro impossible.");
+                    return;
+                }
+                document.getElementById("resultat").value = numbers.num1 / numbers.num2;
+            }
+        }
+    </script>
+</body>
+</html>
