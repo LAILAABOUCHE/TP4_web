@@ -5,11 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    /* Add your CSS styling here */
+
+
+#input1{
+    width: 200px;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+#input2{width: 200px;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+form {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+</style>
 <body>
 
-<form action="">
-    <input type="text" name="input1" id="input1">
-    <input type="text" name="input2" id="input2">
+<form action="" id="formEx1">
+    <input type="text" name="input1" id="input1" placeholder="Saisir un numéro.">
+    <input type="text" name="input2" id="input2"placeholder=" Saisir un numéro.">
     <br><br>
     <input type="button" name="boutton" id="bouton" onclick="Permuter()" value="Permuter">
 </form>
@@ -18,11 +42,13 @@
     function Permuter() {
         var input1 = document.getElementById("input1");
         var input2 = document.getElementById("input2");
-
         var temp = input1.value;
         input1.value = input2.value;
         input2.value = temp;
+        alert("Les deux numéros ont été permutés.");
     }
+
+
 </script>
 
 </body>
