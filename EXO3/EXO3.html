@@ -6,7 +6,6 @@
     <title>calculatrice avancé</title>
 </head>
 <style>
-
     body {
         font-family: Arial, sans-serif;
         text-align: center;
@@ -15,53 +14,83 @@
         margin: 20px;
     }
     #button{
-        background-color: #0c10df; 
+        background-color: #4346e2; 
         border-radius: 12%;
-        color: rgb(15, 11, 11);
+        color: rgb(248, 215, 215);
         padding: 15px 32px;
         font-size: 16px;
-        margin: 4px 2px;
+        margin: 66px ;
         cursor: pointer;
         border: none;
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-        position:relative;
+        position: relative;
+        top: -20px;  
+        left: -50px; 
     }
-     #poids{
-
+    #poids{
         font-size: 24px;
         font-weight: 300;
         color: rgb(197, 31, 31);
         margin-top: 20px;
         margin-bottom: 20px;
-     }
-     #taille{
-
+    }
+    #taille{
         font-size: 24px;
         font-weight: 300;
         color: rgb(197, 31, 31);
         margin-top: 20px;
         margin-bottom: 20px;
-     }
-
-
-
-
+    }
+    #message {
+        font-size: 18px;
+        color: #333;
+        margin-top: 20px;
+    }
 </style>
 <body>
+    <form action="">
+        <label for="poids"> Poids (Kg):</label>
+        <input type="text" id="poids" >
+        <br>
+        <label for="taille">Taille (m): </label>
+        <input type="text" id="taille" >
+        <br>
+        <input type="button" onclick="calucler()" value="calculer" id="button">
+    </form>
     
-<form action="">
+    <div id="message"></div>
+    <script>
+        function calucler() {
+            var poids = parseFloat(document.getElementById("poids").value);
+            var taille = parseFloat(document.getElementById("taille").value);
+            var imc = poids / (taille * taille); 
+            var message = "";
 
-       <label for="poids"> Poids (Kg):</label>
-       <input type="text" id="poids" >
-       <br>
-       <label for="taille">Taille (m): </label>
-       <input type="text" id="taille" >
-       <br>
-       <input type="button" onclick="calucler_interpreter" value="calculer" id="button">
+            switch (true) {
+                case (imc < 18.5):
+                    message = " Votre IMC est : " + imc.toFixed(2) + " - Insuffisance pondérale (maigreur)";
+                    break;
+                case (imc >= 18.5 && imc < 24.9):
+                    message = "Votre IMC est :" + imc.toFixed(2) + " - Corpulence normale";
+                    break;
+                case (imc >= 25 && imc < 29.9):
+                    message = "Votre IMC est :" + imc.toFixed(2) + " - Surpoids";
+                    break;
+                case (imc >= 30 && imc < 34.9):
+                    message = "Votre IMC est : " + imc.toFixed(2) + " - Obésité modérée";
+                    break;
+                case (imc >= 35 && imc < 39.9):
+                    message = "Votre IMC est :" + imc.toFixed(2) + " - Obésité sévère";
+                    break;
+                case (imc >= 40):
+                    message = "Votre IMC est :" + imc.toFixed(2) + " - Obésité morbide ou massive";
+                    break;
+                default:
+                    message = "Valeurs incorrectes";
+            }
 
-</form>
-
-
-
+            document.getElementById("message").innerText = message;
+        }
+    </script>
 </body>
 </html>
