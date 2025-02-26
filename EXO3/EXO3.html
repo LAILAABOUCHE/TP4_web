@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculatrice avancé</title>
+</head>
+<style>
+
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    form {
+        margin: 20px;
+    }
+    #button{
+        background-color: #0c10df; 
+        border-radius: 12%;
+        color: rgb(15, 11, 11);
+        padding: 15px 32px;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        position:relative;
+    }
+     #poids{
+
+        font-size: 24px;
+        font-weight: 300;
+        color: rgb(197, 31, 31);
+        margin-top: 20px;
+        margin-bottom: 20px;
+     }
+     #taille{
+
+        font-size: 24px;
+        font-weight: 300;
+        color: rgb(197, 31, 31);
+        margin-top: 20px;
+        margin-bottom: 20px;
+     }
+
+
+
+
+</style>
+<body>
+    
+<form action="">
+
+       <label for="poids"> Poids (Kg):</label>
+       <input type="text" id="poids" >
+       <br>
+       <label for="taille">Taille (m): </label>
+       <input type="text" id="taille" >
+       <br>
+       <input type="button" onclick="calucler_interpreter" value="calculer" id="button">
+
+</form>
+
+
+
+</body>
+</html>

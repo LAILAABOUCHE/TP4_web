@@ -10,5 +10,9 @@ avec cette formule,on calcule l'indice,le résultat est interpréte comme suit;
 alors ,ce qui est demandé de notre part est de construire une interface comme suit qui sert a calculer et en meme temps interpreter le resultat trouvé,on va essayer de s'inspirer de ce qui est montré ici:
 
 ![alt text](images/image1%20copy%202.png)
+  
+
+d'abord ,dans notre fichier html, on va essayer de créer le formulaire ,qui contient le titre,les deux zones de saisies ,et enfin un boutton pour le calcul.
+
 
 
