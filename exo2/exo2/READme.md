@@ -78,3 +78,16 @@ on a deja fait un onclick ,du coup on doit redéfinir chaque fonction pour l'eve
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
