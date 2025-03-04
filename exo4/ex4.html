@@ -3,87 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>calculatrice avancé</title>
+    <title>Calculatrice Avancée</title>
+
+<style>
+     body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+
+        .calculator {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            width: 500px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        #result {
+            grid-column: span 4;
+            padding:20px;
+            font-size: 24px;
+            text-align: right;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f0f0f0;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        button {
+            padding: 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            background-color: #f0f0f0;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+</style>
+
+      
 </head>
 <body>
-    <table>
 
-<tr>
-    <td colspan="7">
-        <input type="text"  placeholder="0" id="saisie" readonly>
-    </td>
-</tr>
-<tr>
-    <td id="vide1"></td>
-    <td id="vide2"></td>
-    <td id="vide3"></td>
-    <td><button onclick="ajouter('1')">1</button></td>
-    <td><button onclick="ajouter('2')">2</button></td>
-    <td><button onclick="ajouter('3')">3</button></td>
-    <td><button onclick="addition()">+</button></td>
-  
-</tr>
+    <div class="table-calculatrice">
+        <table class="calculator">
+            <tr id="lily" >
+                <td   colspan="7"><input    type="text" id="result" readonly></td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+                <td><button onclick="ajouter('(')">(</button></td>
+                <td><button onclick="ajouter(')')">)</button></td>
+                <td><button onclick="ajouter('%')">%</button></td>
+                <td><button onclick="effacer()">CE</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="ajouter('Inv')">Inv</button></td>
+                <td><button onclick="ajouter('sin(')">sin</button></td>
+                <td><button onclick="ajouter('ln(')">ln</button></td>
+                <td><button onclick="ajouter('7')">7</button></td>
+                <td><button onclick="ajouter('8')">8</button></td>
+                <td><button onclick="ajouter('9')">9</button></td>
+                <td><button onclick="ajouter('/')">/</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="ajouter('pi')">π</button></td>
+                <td><button onclick="ajouter('cos(')">cos</button></td>
+                <td><button onclick="ajouter('log(')">log</button></td>
+                <td><button onclick="ajouter('4')">4</button></td>
+                <td><button onclick="ajouter('5')">5</button></td>
+                <td><button onclick="ajouter('6')">6</button></td>
+                <td><button onclick="ajouter('*')">x</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="ajouter('e')">e</button></td>
+                <td><button onclick="ajouter('tan(')">tan</button></td>
+                <td><button onclick="ajouter('sqrt(')">√</button></td>
+                <td><button onclick="ajouter('3')">3</button></td>
+                <td><button onclick="ajouter('2')">2</button></td>
+                <td><button onclick="ajouter('1')">1</button></td>
+                <td><button onclick="ajouter('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="ajouter('EXP')">EXP</button></td>
+                <td><button onclick="ajouter('^2')">x²</button></td>
+                <td><button onclick="ajouter('^')">x^</button></td>
+                <td><button onclick="ajouter('.')">.</button></td>
+                <td><button onclick="ajouter('0')">0</button></td>
+                <td><button onclick="calculer()">=</button></td>
+                <td><button onclick="ajouter('+')">+</button></td>
+            </tr>
+        </table>
+    </div>
 
-<tr>
-    <td><button onclick="ajouter('1')">1</button></td>
-    <td><button onclick="ajouter('1')">1</button></td>
-    <td><button onclick="ajouter('1')">1</button></td>
-    <td><button onclick="ajouter('1')">1</button></td>
-    <td><button onclick="ajouter('2')">2</button></td>
-    <td><button onclick="ajouter('3')">3</button></td>
-    <td><button onclick="addition()">+</button></td>
-  
-</tr>
+    <script>
+        function ajouter(valeur) {
+            document.getElementById('result').value += valeur;
+        }
 
-<tr>
-    <td id="vide1"></td>
-    <td id="vide2"></td>
-    <td id="vide3"></td>
-    <td><button onclick="ajouter('1')">1</button></td>
-    <td><button onclick="ajouter('2')">2</button></td>
-    <td><button onclick="ajouter('3')">3</button></td>
-    <td><button onclick="addition()">+</button></td>
-  
-</tr>
-<tr>
-    <td id="vide1"></td>
-    <td id="vide2"></td>
-    <td id="vide3"></td>
-    <td><button onclick="ajouter('1')">1</button></td>
-    <td><button onclick="ajouter('2')">2</button></td>
-    <td><button onclick="ajouter('3')">3</button></td>
-    <td><button onclick="addition()">+</button></td>
-  
-</tr>
-<tr>
-    <td id="vide1"></td>
-    <td id="vide2"></td>
-    <td id="vide3"></td>
-    <td><button onclick="ajouter('1')">1</button></td>
-    <td><button onclick="ajouter('2')">2</button></td>
-    <td><button onclick="ajouter('3')">3</button></td>
-    <td><button onclick="addition()">+</button></td>
-  
-</tr>
-<tr>
-    <td id="vide1"></td>
-    <td id="vide2"></td>
-    <td id="vide3"></td>
-    <td><button onclick="ajouter('1')">1</button></td>
-    <td><button onclick="ajouter('2')">2</button></td>
-    <td><button onclick="ajouter('3')">3</button></td>
-    <td><button onclick="addition()">+</button></td>
-  
-</tr>
+        function effacer() {
+            document.getElementById('result').value = '';
+        }
 
+        function calculer() {
+            try {
+                document.getElementById('result').value = eval(document.getElementById('result').value);
+            } catch (e) {
+                document.getElementById('result').value = 'Erreur';
+            }
+        }
+    </script>
 
-
-
-
-
-
-
-    </table>
-    
 </body>
 </html>
